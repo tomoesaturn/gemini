@@ -1,0 +1,33 @@
+image: node:lts
+
+stages:
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .cache/
+    - public/
+
+npm:install:
+  stage: build
+  script:
+    - npm install -g gatsby-cli
+    - npm install
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_MERGE_REQUEST_ID
+
+pages:
+  stage: deploy
+  needs: 
+    - npm:install
+  script:
+    - ./node_modules/.bin/gatsby build --prefix-paths
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
