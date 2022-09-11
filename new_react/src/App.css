@@ -1,0 +1,26 @@
+body {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 600px) {
+  body {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  body {
+    width: 600px;
+  }
+}
+
+.main-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4;
+  padding-right: 4;
+}
+
+.react-calendar {
+  width: 100%;
+}
