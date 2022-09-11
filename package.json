@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": "https://github.com/tomoesaturn/gemini",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
